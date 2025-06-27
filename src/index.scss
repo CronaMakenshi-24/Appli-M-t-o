@@ -1,0 +1,397 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  text-align: center;
+  color-scheme: light blue;
+  color: rgba(245, 245, 245, 0.87);
+  background-color: #77B5FE;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+$hill-color1: #225E15;
+$hill-color2: #3A9D23;
+$hill-color3: #61B04F;
+$primary-color: #6ec1e4;
+$shadow-color: rgba(0, 0, 0, 0.2);
+
+.App {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.backgound-meteo {
+  background: blue;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px 5px #4270ff;
+}
+
+.backgound-meteo input{
+  padding: 5px;
+  border-radius: 10px;
+  border: none;
+  margin: 10px;
+
+}
+
+.backgound-App2{
+  position: absolute;
+  width: 30%;
+  z-index: 2;
+}
+
+.h1{
+  font-size: 48px;
+  margin-top: 25%;
+}
+
+@mixin animation_pluie($duree, $delai) {
+  animation:animation_pluie $duree $delai infinite ease-in;
+}
+
+@mixin animation_nuage($duree, $delai) {
+  animation:animation_nuage $duree $delai infinite ease-in;
+}
+
+@keyframes animation_pluie
+{
+  0% {top:0px;}
+  100% {top:910px;}
+}
+
+@-webkit-keyframes animation_pluie /*Safari and Chrome*/
+{
+  0% {top:0px;}
+  100% {top:910px;}
+}
+
+@keyframes animation_nuage
+{
+  0% {margin-top:0px;}
+  100% {margin-top:2px;}
+}
+
+@-webkit-keyframes animation_nuage /*Safari and Chrome*/
+{
+  0% {margin-top:0px;}
+  100% {margin-top:2px;}
+}
+
+
+/********* DEBUT NUAGES ************/
+
+.nuage_general {
+  position:absolute;
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  background:#ecf0f1;
+  z-index:5;
+}
+
+.nuage_general:after {
+  position:absolute;
+  top:10px;
+  left:50px;
+  width:120px;
+  height:120px;
+  background:#ecf0f1;
+  border-radius:100%;
+  content:'';
+}
+
+.nuage_general:before {
+  position:absolute;
+  top:10px;
+  right:50px;
+  width:120px;
+  height:120px;
+  background:#ecf0f1;
+  border-radius:100%;
+  content:'';
+}
+
+.nuage {
+  top:-19px;
+  right:50px;
+  @include animation_nuage (1.5s,0s);
+}
+
+.nuage2 {
+  top:-15px;
+  right:200px;
+  @include animation_nuage (1.8s,0s);
+}
+
+.nuage3 {
+  top:-5px;
+  right:100px;
+  @include animation_nuage (1.4s,0s);
+}
+
+.nuage4 {
+  top:-19px;
+  right:300px;
+  @include animation_nuage (1.9s,0s);
+}
+
+.nuage5 {
+  top:-15px;
+  right:410px;
+  @include animation_nuage (1.2s,0s);
+}
+
+.nuage6 {
+  top:-5px;
+  right:320px;
+  @include animation_nuage (1.5s,0s);
+}
+
+.nuage7 {
+  top:-15px;
+  right:500px;
+  @include animation_nuage (1.8s,0s);
+}
+
+.nuage8 {
+  top:-15px;
+  right:620px;
+  @include animation_nuage (1.6s,0s);
+}
+
+.nuage9 {
+  top:-5px;
+  right:700px;
+  @include animation_nuage (1.3s,0s);
+}
+
+.nuage10 {
+  top:-22px;
+  right:800px;
+  @include animation_nuage (2s,0s);
+}
+
+.nuage11 {
+  top:-15px;
+  right:900px;
+  @include animation_nuage (1.2s,0s);
+}
+
+/********* FIN NUAGES ************/
+
+/********* DEBUT PLUIE ************/
+
+.water_drop {
+  position:absolute;
+  top:0px;
+  width:14px;
+  height:14px;
+  background:#3498db;
+  border-radius:50%;
+}
+
+.water_drop:after {
+  position:absolute;
+  top:-15px;
+  left:0;
+  content:'';
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 0 7px 20px;
+  border-color: transparent transparent #3498db transparent;
+}
+
+.drop1 {
+  right:120px;
+  @include animation_pluie (1.5s,6s);
+}
+
+.drop2 {
+  right:320px;
+  @include animation_pluie (1.6s,0.5s);
+}
+.drop3 {
+  right:100px;
+  @include animation_pluie (1.8s,2s);
+}
+.drop4 {
+  right:500px;
+  @include animation_pluie (1.5s,2.8s);
+}
+.drop5 {
+  right:120px;
+  @include animation_pluie (1.7s,4s);
+}
+.drop6 {
+  right:380px;
+  @include animation_pluie (1.5s,8s);
+}
+.drop7 {
+  right:450px;
+  @include animation_pluie (1.4s,1.25s);
+}
+.drop8 {
+  right:530px;
+  @include animation_pluie (1.6s,4s);
+}
+.drop9 {
+  right:610px;
+  @include animation_pluie (1.5s,1s);
+}
+.drop10 {
+  right:200px;
+  @include animation_pluie (1.4s,2s);
+}
+.drop11 {
+  right:700px;
+  @include animation_pluie (1.6s,3.5s);
+}
+.drop12 {
+  right:750px;
+  @include animation_pluie (1.5s,.5s);
+}
+.drop13 {
+  right:800px;
+  @include animation_pluie (1.4s,6s);
+}
+.drop14 {
+  right:860px;
+  @include animation_pluie (1.6s,8s);
+}
+.drop15 {
+  right:920px;
+  @include animation_pluie (1.4s,5.5s);
+}
+.drop16 {
+  right:980px;
+  @include animation_pluie (1.8s,10s);
+}
+
+.orbit {
+  position: absolute;
+  top: 10%;
+  border: 2px dotted rgb(84 84 84 / 15%);
+  border-radius: 100%;
+  transform: translate(-235%, -50%);
+  box-shadow: 0px 0px 2000px 700px rgba(255, 255, 255, 0.55);
+  z-index: 3;
+}
+
+.orbit-sun {
+  width: calc(25%);
+  height: calc(70%);
+  border: 1px dotted #ff6600;
+  background: #ffcc00;
+}
+
+.orbit-sun:before {
+  content: "";
+  background: #ffcc00;
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 100%;
+  box-shadow: 0 0 20em 5em #ff66006b, 0 0 200px 100px #ff66006b inset, 0 0 20px 10px #ffcc00f2;
+}
+
+@mixin circle($size, $color) {
+  width: $size;
+  height: $size;
+  background-color: $color;
+  border-radius: 50%;
+}
+
+@mixin hill($width, $height, $color) {
+  width: $width;
+  height: $height;
+  background-color: $color;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  position: absolute;
+  bottom: 0;
+}
+
+.landscape {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+.hill1 {
+  @include hill(60%, 200px, $hill-color1);
+  left: 0;
+}
+
+.hill2 {
+  @include hill(70%, 250px, $hill-color2);
+  left: 15%;
+}
+
+.hill3 {
+  @include hill(80%, 300px, $hill-color3);
+  left: 35%;
+}
+
+.cloud-button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background: $primary-color;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    background: $primary-color;
+    border-radius: 50%;
+  }
+
+  &::before {
+    width: 60px;
+    height: 60px;
+    top: -12px;
+    left: 20px;
+  }
+
+  &::after {
+    width: 80px;
+    height: 80px;
+    top: -20px;
+    right: 20px;
+  }
+
+  .button-text {
+    position: relative; // Assure que le texte est positionné correctement par rapport au bouton
+    z-index: 2; // Assure que le texte est au-dessus du bouton et de ses pseudo-éléments
+  }
+}
